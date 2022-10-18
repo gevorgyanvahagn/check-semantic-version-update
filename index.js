@@ -12,9 +12,9 @@ try {
 
   const diff = semver.diff(currentVersion, previousVersion)
 
-  const incrementMajor = semver.inc('previousVersion', 'major')
-  const incrementMinor = semver.inc('previousVersion', 'minor')
-  const incrementPatch = semver.inc('previousVersion', 'patch')
+  const incrementMajor = semver.inc(previousVersion, 'major')
+  const incrementMinor = semver.inc(previousVersion, 'minor')
+  const incrementPatch = semver.inc(previousVersion, 'patch')
 
   console.log(`Incremented major ${incrementMajor}!`);
   console.log(`Incremented minor ${incrementMinor}!`);
