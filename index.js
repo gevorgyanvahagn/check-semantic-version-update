@@ -1,5 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const semver = require('semver');
 
 try {
 
@@ -9,9 +10,11 @@ try {
   const previousVersion = core.getInput('previous-version');
   console.log(`The previous version of the app is ${previousVersion}!`);
 
+  const diff = semver.diff(currentVersion, previousVersion)
+  console.log(`The diff is ${diff}!`);
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
-  
+
 } catch (error) {
   core.setFailed(error.message);
 }
