@@ -1,0 +1,13 @@
+name: 'Check semantic version update'
+description: 'Github action that will will compare current and previous semantic version of the app to make sure it's incremented properly'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'node16'
+  main: 'index.js'
