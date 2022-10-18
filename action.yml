@@ -1,10 +1,12 @@
 name: 'Check semantic version update'
 description: 'Github action that will will compare current and previous semantic version of the app to make sure it is incremented properly'
 inputs:
-  who-to-greet:
-    description: 'Who to greet'
+  current-version:
+    description: 'Current version of the app'
     required: true
-    default: 'World'
+  previous-version:
+    description: 'Previous version of the app'
+    required: true
 outputs:
   time:
     description: 'The time we greeted you'
