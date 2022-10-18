@@ -1,13 +1,37 @@
-name: 'Check semantic version update'
-description: 'Github action that will will compare current and previous semantic version of the app to make sure it's incremented properly'
+name: 'Test'
+description: 'Test'
+branding:
+  icon: 'file-text'
+  color: 'yellow'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  output-path:
+    description: 'the destination file path'
+    required: false
+    default: 'codecov.json'
+  ignore-pattern:
+    description: 'pattern to exclude from coverage'
+    retuired: false
+    default: '(.*\.cargo/registry/.*)|(.*\.rustup/.*)|(.*test.*)'
 runs:
-  using: 'node16'
-  main: 'index.js'
+  using: 'composite'
+  steps:
+  - name: install nightly
+    run: |
+      rustup set profile minimal
+      rustup toolchain install nightly
+    shell: bash
+
+  - name: Install llvm tools
+    run: rustup component add llvm-tools-preview
+    shell: bash
+
+  - name: Install cargo utilities
+    run: cargo +nightly install cargo-binutils cargo-llvm-codecov-converter
+    shell: bash
+
+  - name: build test and cover
+    run: |
+      export OUTPUT_PATH="${{ inputs.output-path }}"
+      export IGNORE_PATTERN="${{ inputs.ignore-pattern }}"
+      ${{ github.action_path }}/build-test-cover.sh
+    shell: bash
