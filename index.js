@@ -6,7 +6,7 @@ try {
 
   const currentVersion = core.getInput('current-version');
   console.log(`The current version of the app is ${currentVersion}!`);
-  const cleanCurrentVersion = semver.clean(previousVersion)
+  const cleanCurrentVersion = semver.clean(currentVersion)
 
   const previousVersion = core.getInput('previous-version');
   console.log(`The previous version of the app is ${previousVersion}!`);
