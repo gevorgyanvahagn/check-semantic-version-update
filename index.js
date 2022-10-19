@@ -30,6 +30,7 @@ try {
   }
 
   if (cleanCurrentVersion !== incrementMajor || cleanCurrentVersion !== incrementMajor, cleanCurrentVersion !== incrementMajor) {
+    console.log(`[Debug log] Invalid app version ${cleanCurrentVersion}!`);
     throw `Invalid app version ${cleanCurrentVersion}!`;
   }
 
