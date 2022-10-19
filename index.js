@@ -17,7 +17,7 @@ try {
   const incrementMinor = semver.inc(previousVersion, 'minor')
   const incrementPatch = semver.inc(previousVersion, 'patch')
 
-  if (cleanCurrentVersion == incrementMajor || cleanCurrentVersion !== incrementMinor || cleanCurrentVersion !== incrementPatch) {
+  if (cleanCurrentVersion == incrementMajor || cleanCurrentVersion == incrementMinor || cleanCurrentVersion == incrementPatch) {
     if (cleanCurrentVersion == incrementMajor) {
         console.log(`Incremented major version, new version is ${incrementMajor}!`);
       }
