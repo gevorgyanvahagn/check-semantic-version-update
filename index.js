@@ -30,8 +30,8 @@ try {
   }
 
   if (cleanCurrentVersion !== incrementMajor || cleanCurrentVersion !== incrementMajor, cleanCurrentVersion !== incrementMajor) {
-    console.log(`[Debug log] Invalid app version ${cleanCurrentVersion}!`);
-    throw `Invalid app version ${cleanCurrentVersion}!`;
+    console.log(`Invalid app version ${currentVersion}, previous app version is ${previousVersion}!`);
+    throw new Error(`Invalid app version ${currentVersion}, previous app version is ${previousVersion}!`);
   }
 
 } catch (error) {
