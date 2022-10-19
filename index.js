@@ -6,6 +6,7 @@ try {
 
   const currentVersion = core.getInput('current-version');
   console.log(`The current version of the app is ${currentVersion}!`);
+  const cleanCurrentVersion = semver.clean(previousVersion)
 
   const previousVersion = core.getInput('previous-version');
   console.log(`The previous version of the app is ${previousVersion}!`);
@@ -16,14 +17,21 @@ try {
   const incrementMinor = semver.inc(previousVersion, 'minor')
   const incrementPatch = semver.inc(previousVersion, 'patch')
 
-  console.log(`Incremented major ${incrementMajor}!`);
-  console.log(`Incremented minor ${incrementMinor}!`);
-  console.log(`Incremented patch ${incrementPatch}!`);
+  if (cleanCurrentVersion == incrementMajor) {
+    console.log(`Incremented major version, new version is ${incrementMajor}!`);
+  }
 
+  if (cleanCurrentVersion == incrementMinor) {
+    console.log(`Incremented minor version, new version is ${incrementMinor}!`);
+  }
 
-  console.log(`The diff is ${diff}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
+  if (cleanCurrentVersion == incrementPatch) {
+    console.log(`Incremented patch version, new version is ${incrementPatch}!`);
+  }
+
+  if (cleanCurrentVersion !== incrementMajor || cleanCurrentVersion !== incrementMajor, cleanCurrentVersion !== incrementMajor) {
+    throw `Invalid app version ${cleanCurrentVersion}!`;
+  }
 
 } catch (error) {
   core.setFailed(error.message);

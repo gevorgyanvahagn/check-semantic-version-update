@@ -7,9 +7,6 @@ inputs:
   previous-version:
     description: 'Previous version of the app'
     required: true
-outputs:
-  time:
-    description: 'The time we greeted you'
 runs:
   using: 'node16'
   main: 'index.js'
