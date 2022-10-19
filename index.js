@@ -29,8 +29,7 @@ try {
     console.log(`Incremented patch version, new version is ${incrementPatch}!`);
   }
 
-  if (cleanCurrentVersion !== incrementMajor || cleanCurrentVersion !== incrementMajor, cleanCurrentVersion !== incrementMajor) {
-    console.log(`Invalid app version ${currentVersion}, previous app version is ${previousVersion}!`);
+  if (cleanCurrentVersion !== incrementMajor, cleanCurrentVersion !== incrementMajor, cleanCurrentVersion !== incrementMajor) {
     throw new Error(`Invalid app version ${currentVersion}, previous app version is ${previousVersion}!`);
   }
 
