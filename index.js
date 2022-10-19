@@ -35,8 +35,8 @@ try {
     console.log(`You can delete tag ${currentVersion} with the following commands:`);
     console.log(`   git push --delete origin ${currentVersion}`);
     console.log(`   git fetch origin --prune --prune-tags`);
-    throw new Error(`Invalid app version ${currentVersion}, previous app version is ${previousVersion}!`);
     console.log(`*********************************************************************************`);
+    throw new Error(`Invalid app version ${currentVersion}, previous app version is ${previousVersion}!`);
   }
 
 } catch (error) {
