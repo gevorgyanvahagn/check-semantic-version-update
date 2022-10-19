@@ -30,10 +30,13 @@ try {
   }
 
   if (cleanCurrentVersion !== incrementMajor, cleanCurrentVersion !== incrementMinor, cleanCurrentVersion !== incrementPatch) {
-    console.log(`incrementMajor ${incrementMajor}!`);
-    console.log(`incrementPatch ${incrementPatch}!`);
-    console.log(`incrementPatch ${incrementPatch}!`);
+    console.log(`*********************************************************************************`);
+    console.log(`Invalid app version ${currentVersion}, please check https://semver.org for best practicies of updating the semantic version of  the app`);
+    console.log(`You can delete tag ${currentVersion} with the following commands:`);
+    console.log(`   git push --delete origin ${currentVersion}`);
+    console.log(`   git fetch origin --prune --prune-tags`);
     throw new Error(`Invalid app version ${currentVersion}, previous app version is ${previousVersion}!`);
+    console.log(`*********************************************************************************`);
   }
 
 } catch (error) {
